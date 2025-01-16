@@ -35,7 +35,7 @@ public class Main
         ArrayList<Integer> arrL = new ArrayList<Integer>();
         arrL.add(7);
         arrL.add(2);
-        arrL.add(8);
+        arrL.add(5);
         arrL.add(4);
 //
 //        // Using lambda expression to print all elements
@@ -54,10 +54,16 @@ public class Main
 //        });
 
         //Stream API
-        Stream<Integer> data = arrL.stream();
-        Stream<Integer> sortedData=data.sorted();
-        sortedData.forEach(n->System.out.println(n));
-        //arrL.forEach(n->System.out.println(n));g
+        arrL.stream()
+                .filter(n->n%2!=0)
+                .map(n->n*2)
+                .sorted()
+                .forEach(n-> System.out.println(n));
+
+
+
+
+
 
 
 
