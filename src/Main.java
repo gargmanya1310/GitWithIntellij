@@ -54,11 +54,13 @@ public class Main
 //        });
 
         //Stream API
-        arrL.stream()
+       int result= arrL.stream()
                 .filter(n->n%2!=0)
                 .map(n->n*2)
                 .sorted()
-                .forEach(n-> System.out.println(n));
+                .reduce(0,(a,b)->a+b);
+               //.forEach(n-> System.out.println(n));
+        System.out.println(result);
 
 
 
