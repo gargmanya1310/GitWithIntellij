@@ -58,7 +58,7 @@ public class Main
                 .filter(n->n%2!=0)
                 .map(n->n*2)
                 .sorted()
-                .reduce(0,(a,b)->a+b);
+                .reduce(0,(a,b)->a+b);              //here we are adding the result of last function and reduce returns integer value (10+14=24)
                //.forEach(n-> System.out.println(n));
         System.out.println(result);
 
