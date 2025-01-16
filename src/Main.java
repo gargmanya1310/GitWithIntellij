@@ -53,11 +53,7 @@ public class Main
         });
 
         //String API
-        List<String> myList=Arrays.asList("apple","banana", "orange");
-        Stream<String> seqStream=myList.stream();
-        Stream<String> parallelStream=myList.parallelStream();
 
-        List<String> filtered = myList.stream().filter(s->s.startsWith("a")).collect(Collectors.toList());
 
     }
 }
