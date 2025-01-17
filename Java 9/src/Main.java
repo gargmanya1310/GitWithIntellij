@@ -3,6 +3,8 @@
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 interface StringOper {
@@ -22,7 +24,7 @@ interface Sayable{
 
 public class Main implements Sayable
 {
-    public static void main(String[] args)//throws Exception
+    public static void main(String[] args)throws Exception
     //throws FileNotFoundException
     {
 
@@ -85,14 +87,32 @@ public class Main implements Sayable
 //        String op = s.concat("Hello", " World");
 //        System.out.println(op);
 
-//using string indent in java 12
-        String original = "Hello\nWorld";
-        String indented = original.indent(4);
-        System.out.println(indented);
+////using string indent in java 12
+//        String original = "Hello\nWorld";
+//        String indented = original.indent(4);
+//        System.out.println(indented);
+//
+//        //using transform in java 12
+//        String original1 = "Hello";
+//        String transformed = original.transform(s -> s.toUpperCase());
+//        System.out.println(transformed);
 
-        //using transform in java 12
-        String original1 = "Hello";
-        String transformed = original.transform(s -> s.toUpperCase());
-        System.out.println(transformed);
+//test mismatch() in java 12
+        // getting the file path to the respective two files
+        Path filePath1 = Path.of("C:\\Users\\asus\\Desktop\\m1.txt");
+        Path filePath2 = Path.of("c:\\Users\\asus\\Desktop\\m2.txt");
+
+        // calling the mismatchfunction
+        long mis_match = Files.mismatch(filePath1, filePath2);
+
+        // printing the output result.
+        if (mis_match == -1)
+            System.out.println("No mismatch found in the files");
+        else
+            System.out.println("mismatch found");
+
+
+
+
     }
-    }
+}
