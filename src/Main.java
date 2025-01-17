@@ -10,6 +10,17 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+interface Greeting {
+    // A default method in the interface
+    default void greet() {
+        System.out.println("Hello, from the interface!");
+    }
+}
+
+class Person implements Greeting {
+    // No need to override the default greet() method
+}
+
 interface Teller {
     String tellName(String name);
 }
@@ -95,7 +106,11 @@ public class Main
         Teller methodRef1 = String::new;
         System.out.println(methodRef1.tellName("John Wayne"));   //s -> new String(s);
 
-        // Current date, time, and date-time
+// default methods
+        Person person = new Person();
+        person.greet(); // Will use the default method implementation
+
+// Current date, time, and date-time
         LocalDate currentDate = LocalDate.now();
         LocalTime currentTime = LocalTime.now();
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -109,11 +124,5 @@ public class Main
         String dateString = "2023-08-01";
         LocalDate parsedDate = LocalDate.parse(dateString, dateFormatter);
         System.out.println("Parsed Date: " + parsedDate);
-
-
-
-
-
-
     }
 }
