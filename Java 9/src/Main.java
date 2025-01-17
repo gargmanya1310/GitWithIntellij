@@ -5,6 +5,11 @@ import java.io.FileOutputStream;
 
 import java.util.*;
 
+interface StringOper {
+    String concat(String left, String right);
+}
+
+
 interface Sayable{
     default void say() {
         saySomething();
@@ -17,7 +22,7 @@ interface Sayable{
 
 public class Main implements Sayable
 {
-    public static void main(String[] args)throws Exception
+    public static void main(String[] args)//throws Exception
     //throws FileNotFoundException
     {
 
@@ -45,35 +50,40 @@ public class Main implements Sayable
 //        System.out.println("Salary: " + salary);
 //        //If this was done in prev. versions then : Compile-time error: var must be initialized; gvar uninitializedVar;
 
-//unmodifiable collection
-        try {
+////unmodifiable collection
+//        try {
+//
+//            // creating object of ArrayList<Character>
+//            List<Character> list = new ArrayList<Character>();
+//
+//            // populate the list
+//            list.add('X');
+//            list.add('Y');
+//
+//            // printing the list
+//            System.out.println("Initial list: " + list);
+//
+//            // getting unmodifiable list
+//            // using unmodifiableCollection() method
+//         //   Collection<Character>immutablelist = Collections.unmodifiableCollection(list);
+//
+//            Collection<Character>copyoflist = List.copyOf(list);
+//            // Adding element to new Collection
+//           // System.out.println("\nTrying to modify the unmodifiableCollection");
+//            System.out.println("\nTrying to modify the unmodifiablelist using copyOflist");
+//
+//          //  immutablelist.add('Z');
+//            copyoflist.add('Z');
+//        }
+//        catch (UnsupportedOperationException e) {
+//
+//            System.out.println("Exception thrown : " + e);
+//        }
 
-            // creating object of ArrayList<Character>
-            List<Character> list = new ArrayList<Character>();
-
-            // populate the list
-            list.add('X');
-            list.add('Y');
-
-            // printing the list
-            System.out.println("Initial list: " + list);
-
-            // getting unmodifiable list
-            // using unmodifiableCollection() method
-         //   Collection<Character>immutablelist = Collections.unmodifiableCollection(list);
-
-            Collection<Character>copyoflist = List.copyOf(list);
-            // Adding element to new Collection
-           // System.out.println("\nTrying to modify the unmodifiableCollection");
-            System.out.println("\nTrying to modify the unmodifiablelist using copyOflist");
-
-          //  immutablelist.add('Z');
-            copyoflist.add('Z');
-        }
-        catch (UnsupportedOperationException e) {
-
-            System.out.println("Exception thrown : " + e);
-        }
+        // using var keyword in java 11
+        StringOper s  = (var left, var right) -> left + right;
+        String op = s.concat("Hello", " World");
+        System.out.println(op);
 
     }
 }
