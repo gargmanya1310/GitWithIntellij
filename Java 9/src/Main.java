@@ -32,6 +32,15 @@ public class Main implements Sayable
         Sayable s = new Main();
         s.say();
 
+//Local variable type inference java 10
+        var name = "John Doe"; // Infers String type
+        var age = 30; // Infers int type
+        var salary = 50000.0; // Infers double type
+
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Salary: " + salary);
+        //If this was done in prev. versions then : Compile-time error: var must be initialized; gvar uninitializedVar;
 
     }
 }
