@@ -80,10 +80,19 @@ public class Main implements Sayable
 //            System.out.println("Exception thrown : " + e);
 //        }
 
-        // using var keyword in java 11
-        StringOper s  = (var left, var right) -> left + right;
-        String op = s.concat("Hello", " World");
-        System.out.println(op);
+//        // using var keyword in java 11
+//        StringOper s  = (var left, var right) -> left + right;
+//        String op = s.concat("Hello", " World");
+//        System.out.println(op);
 
+//using string indent in java 12
+        String original = "Hello\nWorld";
+        String indented = original.indent(4);
+        System.out.println(indented);
+
+        //using transform in java 12
+        String original1 = "Hello";
+        String transformed = original.transform(s -> s.toUpperCase());
+        System.out.println(transformed);
     }
-}
+    }
