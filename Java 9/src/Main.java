@@ -97,20 +97,48 @@ public class Main implements Sayable
 //        String transformed = original.transform(s -> s.toUpperCase());
 //        System.out.println(transformed);
 
-//test mismatch() in java 12
-        // getting the file path to the respective two files
-        Path filePath1 = Path.of("C:\\Users\\asus\\Desktop\\m1.txt");
-        Path filePath2 = Path.of("c:\\Users\\asus\\Desktop\\m2.txt");
+////test mismatch() in java 12
+//        // getting the file path to the respective two files
+//        Path filePath1 = Path.of("C:\\Users\\asus\\Desktop\\m1.txt");
+//        Path filePath2 = Path.of("c:\\Users\\asus\\Desktop\\m2.txt");
+//
+//        // calling the mismatchfunction
+//        long mis_match = Files.mismatch(filePath1, filePath2);
+//
+//        // printing the output result.
+//        if (mis_match == -1)
+//            System.out.println("No mismatch found in the files");
+//        else
+//            System.out.println("mismatch found");
 
-        // calling the mismatchfunction
-        long mis_match = Files.mismatch(filePath1, filePath2);
+////Switch expresssions
+//        Object obj = "Hello";
+//        switch (obj) {
+//            case String s -> System.out.println("It's a string: " + s);
+//            case Integer i -> System.out.println("It's an integer: " + i);
+//            default -> System.out.println("Unknown type");
+//        }
+//
+//        String day = null;
+//        String result = switch (day) {
+//            case null -> "The day is null!";
+//            case "Monday", "Tuesday" -> "It's a weekday.";
+//            default -> "Invalid day.";
+//        };
+//        System.out.println(result);
 
-        // printing the output result.
-        if (mis_match == -1)
-            System.out.println("No mismatch found in the files");
-        else
-            System.out.println("mismatch found");
 
+        String day = null;
+        String result = switch (day) {
+            case null:
+                yield "The day is null!";
+            case "Monday", "Tuesday":
+                yield "It's a weekday.";
+            default:
+                yield "Invalid day.";
+        };
+
+        System.out.println(result);
 
 
 
